@@ -44,6 +44,7 @@ class ViewController: UIViewController {
     }
     
     
+    
     @IBAction func answerButtonPressed(_ sender: UIButton) {
         
           
@@ -73,16 +74,19 @@ class ViewController: UIViewController {
         Timer.scheduledTimer(timeInterval: 0.2, target:self, selector: #selector(updateUI), userInfo: nil, repeats:false)
       
     }
-    
-    
+
     
 
     
     //UPDATE THE CURRENT QUESTION ON THE SCREEN
     @objc func updateUI (){
+        //MOVES TO THE NEXT QUESTION AND UPDATES THE PROGRSS BAR
         questionLabel.text = quiz[questionNumber].text
+        progressBar.progress =  Float(questionNumber+1) / Float(quiz.count)
         
-       
+        
+      
+        //CHANGES THE COLOR BACK TO CLEAR ON EVERY CLICK
         trueButton.backgroundColor = UIColor.clear
         falseButton.backgroundColor = UIColor.clear
     }
